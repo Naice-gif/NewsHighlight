@@ -23,29 +23,74 @@
         </div>   
         {% endfor %}
     </ul>
-    <!-- <h1>Entertainment</h1>
-    <ul>
-        {% for sources in general %}
-            <li><h3>Name: {{ sources.name }}</h3></li>
-            <li>ID: {{ sources.id }}</li>
-            <li>Description: {{ sources.description }}</li>
-            <li>Url: {{ sources.url }}</li>
-            <li>Category: {{ sources.category }}</li>
-            <li>Language: {{ sources.language }}</li>
-            <li>Country: {{ sources.country }}</li>
-        {% endfor %}
-    </ul>
-    <h1>Animals</h1>
-    <ul>
-            {% for sources in general %}
-                <li><h3>Name: {{ sources.name }}</h3></li>
-                <li>ID: {{ sources.id }}</li>
-                <li>Description: {{ sources.description }}</li>
-               
+
+    <div class="container-fluid">
+        <div class="row">
+           <h3 style="text-align: center;color:#056b5b;"> Entertainment News</h3>
+        {% for  entertainment_news in entertainment %}
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <div class="details">
+            <h4>{{ entertainment_news.name}}</h5>
+            <p>{{ entertainment_news.description}}</p>
+            <p><a href="/news/{{entertainment_news.id}}">Read {{entertainment_news.id}} Article</a></p>
+                </div>
+                </div>
+            </div>
             {% endfor %}
-    </ul> -->
-    </div>      
-  </div>        
+        </div>
+    </div>
+     
+    <div class="container-fluid">
+        <div class="row">
+           <h3 style="text-align: center;color:#056b5b;"> Politics News</h3>
+        {% for  politics_news in politics %}
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <div class="details">
+            <h4>{{ politics_news.name}}</h5>
+            <p>{{politics_news.description}}</p>
+            <p><a href="/news/{{politics_news.id}}">Read {{politics_news.id}} Article</a></p>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+           <h3 style="text-align: center;color:#056b5b;"> Animals News</h3>
+        {% for  animals_news in animals %}
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <div class="details">
+            <h4>{{ animals_news.name}}</h5>
+            <p>{{animals_news.description}}</p>
+            <p><a href="/news/{{animals_news}}">Read {{animals_news.id}} Article</a></p>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+           <h3 style="text-align: center;color:#056b5b;"> Sports News</h3>
+        {% for  sports_news in sports %}
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <div class="details">
+            <h4>{{ sports_news.name}}</h5>
+            <p>{{sports_news.description}}</p>
+            <p><a href="/news/{{sports_news.id}}">Read {{sports_news.id}} Article</a></p>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 
 {% endblock %}

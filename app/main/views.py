@@ -17,6 +17,7 @@ def index():
     entertainment_news = get_source('entertainment')
     politics_news = get_source('politics')
     animals_news = get_source('animals')
+    sports_news = get_source('sports')
     title = 'Home - Welcome to your worldwide news source'
     return render_template('index.html', title = title, entertainment = entertainment_news, politics = politics_news, animals = animals_news )
 
