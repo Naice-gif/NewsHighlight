@@ -1,0 +1,51 @@
+<!-- <h1> {{ message }} </h1> -->
+{%block content %}
+<body>
+ <div class="container">
+    <div>
+        <h1>General News Sources</h1>
+        <ul>
+        {% for sources in entertainment %}
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="card">
+                <div class="card-heading">
+                  <div class="card-body">
+                    <li><h3>Name: {{ sources.name }}</h3></li>
+                    <li>ID: {{ sources.id }}</li>
+                    <li>Description: {{ sources.description }}</li>
+                    <li>Url: {{ sources.url }}</li>
+                    <li>Category: {{ sources.category }}</li>
+                    <li>Language: {{ sources.language }}</li>
+                    <li>Country: {{ sources.country }}</li>
+                  </div> 
+                </div>
+            </div>
+        </div>   
+        {% endfor %}
+    </ul>
+    <!-- <h1>Entertainment</h1>
+    <ul>
+        {% for sources in general %}
+            <li><h3>Name: {{ sources.name }}</h3></li>
+            <li>ID: {{ sources.id }}</li>
+            <li>Description: {{ sources.description }}</li>
+            <li>Url: {{ sources.url }}</li>
+            <li>Category: {{ sources.category }}</li>
+            <li>Language: {{ sources.language }}</li>
+            <li>Country: {{ sources.country }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Animals</h1>
+    <ul>
+            {% for sources in general %}
+                <li><h3>Name: {{ sources.name }}</h3></li>
+                <li>ID: {{ sources.id }}</li>
+                <li>Description: {{ sources.description }}</li>
+               
+            {% endfor %}
+    </ul> -->
+    </div>      
+  </div>        
+</body>
+
+{% endblock %}
