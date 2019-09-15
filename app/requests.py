@@ -64,32 +64,47 @@ def process_results(source_list):
 
     
 
-def configure_request(app):
-    global api_key,base_url
-    api_key = app.config['ARTS_API_KEY']
-    base_url = app.config['ARTS_API_BASE_URL']
-    print('Hey')
-    print(base_url)
-    print(api_key)
-
-
-def get_article(category):
+def get_articles(id):
     '''
-    Function that gets the json response to our url request
+    Function that processes the articles and returns a list of articles objects
     '''
-    get_article_url = base_url.format(category,api_key)
-
-    with urllib.request.urlopen(get_article_url) as url:
-        get_article_data = url.read()
-        get_article_response = json.loads(get_article_data)
-
-        source_results = None
-
-        if get_article_response['articles']:
-           article_results_list = get_article_response['articles']
-           article_results = process_results(article_results_list)
+    print(id)
+    print(apiKey)
+    print(articles_url)
+    get_articles_url = articles_url.format(id,apiKey)
+    print(get_articles_url)
 
 
-    return article_results
-    
+    with urllib.request.urlopen(get_articles_url) as url:
+        articles_results = json.loads(url.read())
+        articles_object = None
+
+        if articles_results['articles']:
+           articles_object = process_articles(articles_results['articles'])
+
+    return articles_object
+
+
+
+def process_articles(articles_list):
+    '''
+    '''
+    articles_object = []
+
+     
+    for article_item in articles_list:
+        id = article_item.get('id')
+        author = article_item.get('author')
+        title = article_item.get('title')
+        content = article_item.get('content')
+        description = article_item.get('description')
+        url = article_item.get('url')
+        image = article_item.get('urlToImage')
+        date = article_item.get('publishedAt')
+
+        if image:
+           articles_result = Articles(id,title, description, image, date, author, url,content)
+           articles_object.append(articles_result)
+
+    return articles_object
 
