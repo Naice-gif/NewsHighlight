@@ -19,3 +19,16 @@ def index():
     animals_news = get_source('animals')
     title = 'Home - Welcome to your worldwide news source'
     return render_template('index.html', title = title, entertainment = entertainment_news, politics = politics_news, animals = animals_news )
+
+
+@main.route('/news/<id>')
+def source(id):
+   '''
+   function that returns articles by source id
+   '''
+   article_source = get_articles(id)
+   title = f'{id}| Articles'
+   return render_template('articles.html',title = title, articles = article_source)
+
+
+
